@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Users List</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../css/responsive.css" type="text/css"/>
-    <script type="text/javascript">
-      function sureToApprove(id){
-        if(confirm("Are you sure you want to delete this user?")){
-          window.location.href ='delete_user.php?id='+id;
-        }
+<head>
+  <title>Users List</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript">
+    function sureToApprove(id) {
+      if (confirm("Are you sure you want to delete this user?")) {
+        window.location.href = 'delete_user.php?id=' + id;
       }
-    </script>
-  </head>
-  <body>
-    <?php
-      include 'menu.php';
-    ?>
-    <main>
-      <section class="admin-table">
-        <h2>Our Users</h2>
-        
-        <div class="table-card">
-          <?php
-            include '../includes/config.php';
-            $select = "SELECT * FROM users ORDER BY user_id DESC";
-            $result = $conn->query($select);
-          ?>
-          <div class="table-container">
-            <table width="100%">
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Phone No.</th>
-                <th>License No.</th>
-                <th>Gender</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Control</th>
-              </tr>
-              <?php
-              while ($row = $result->fetch_assoc()) {
-              ?>
-                <tr>
-                  <td><?php echo $row['user_id'] ?></td>
-                  <td><?php echo $row['user_name'] ?></td>
-                  <td><?php echo $row['phone'] ?></td>
-                  <td><?php echo $row['license'] ?></td>
-                  <td><?php echo $row['gender'] ?></td>
-                  <td><?php echo $row['address'] ?></td>
-                  <td><?php echo $row['email'] ?></td>
-                  <td>
-                    <a href="javascript:sureToApprove(<?php echo $row['user_id'];?>)" class="ico del">Delete</a>
-                  </td>
-                </tr>
-              <?php
-              }
-              ?>
-            </table>
-          <div>
-        </div> 
-      </main>
-    </section> 
-  </body>
+    }
+  </script>
+</head>
+<body>
+  <?php include 'menu.php'; ?>
+  <main class="w-full h-full p-5">
+    <section class="admin-table">
+      <h2 class="text-2xl font-bold mb-4">Our Users</h2>
+      
+      <div class="table-card relative overflow-x-auto px-5 py-5 shadow-md sm:rounded-lg">
+        <?php
+          include '../includes/config.php';
+          $select = "SELECT * FROM users ORDER BY user_id DESC";
+          $result = $conn->query($select);
+        ?>
+        <table class="w-full text-sm text-left text-gray-500">
+          <thead class="text-xs text-gray-900 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">ID</th>
+              <th scope="col" class="px-6 py-3">Nama</th>
+              <th scope="col" class="px-6 py-3">No. Telepon</th>
+              <th scope="col" class="px-6 py-3">Nomor Plat</th>
+              <th scope="col" class="px-6 py-3">Jenis Kelamin</th>
+              <th scope="col" class="px-6 py-3">Alamat</th>
+              <th scope="col" class="px-6 py-3">Email</th>
+              <th scope="col" class="px-6 py-3">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php while ($row = $result->fetch_assoc()) { ?>
+            <tr class="bg-white border-b">
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['user_id']); ?></td>
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['user_name']); ?></td>
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['phone']); ?></td>
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['license']); ?></td>
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['gender']); ?></td>
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['address']); ?></td>
+              <td class="px-6 py-4"><?php echo htmlspecialchars($row['email']); ?></td>
+              <td class="px-6 py-4 text-center">
+                <a href="javascript:sureToApprove(<?php echo $row['user_id']; ?>)" class="font-medium text-red-600 hover:underline">Delete</a>
+              </td>
+            </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
