@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2024 at 07:13 AM
+-- Generation Time: Jun 16, 2024 at 07:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `car_db`
+-- Database: `car3`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `email`, `password`) VALUES
-(1, 'admin@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99');
+(1, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(2, 'a@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -71,17 +72,17 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`car_id`, `year`, `rate`, `availability`, `capacity`, `image1`, `image2`, `image3`, `image4`, `image5`, `car_make`, `car_model`, `transmission`, `fuel_type`, `license_plate`, `car_location`, `mileage`) VALUES
-(1, 2019, 3900.00, 1, 2, 'https://i.ibb.co/dPg7M4M/image-1.jpg', 'https://i.ibb.co/xFVRNdT/image-2.jpg', 'https://i.ibb.co/S6yGg5B/image-4.jpg', 'https://i.ibb.co/xzNRg7s/image-5.jpg', 'https://i.ibb.co/xftHFG2/image-3.jpg', 'Chevrolet', 'Malibu', 'Automatic', 'Gasoline', 'JKL012', 'Karnataka', 33),
-(2, 2022, 2400.00, 1, 4, 'https://i.ibb.co/5sF1hM8/image-1.jpg', 'https://i.ibb.co/Y7vrbS2/image-2.jpg', 'https://i.ibb.co/1bSj8TW/image-5.jpg', 'https://i.ibb.co/CsYcTyt/image-3.jpg', 'https://i.ibb.co/Dg1h7sc/image-4.jpg', 'Nissan', 'Altima', 'CVT', 'Petrol', 'MNO345', 'Goa', 29),
-(3, 2021, 4300.00, 1, 4, 'https://i.ibb.co/xqMNY2K/image-1.jpg', 'https://i.ibb.co/2tNnGWD/image-4.jpg', 'https://i.ibb.co/nmmZhsL/image-5.jpg', 'https://i.ibb.co/yBq0HsT/image-2.jpg', 'https://i.ibb.co/drv3dYt/image-3.jpg', 'Honda', 'Civic', 'Automatic', 'Hybrid', 'GHI789', 'Delhi', 25),
-(5, 2020, 5200.00, 1, 10, 'https://i.ibb.co/PQSpf7g/image-1.jpg', 'https://i.ibb.co/Sy1ZRJq/image-3.jpg', 'https://i.ibb.co/h8YXpr2/image-4.jpg', 'https://i.ibb.co/tYW3B6k/image-5.jpg', 'https://i.ibb.co/s2HdV2t/image-2.jpg', 'Telsa', 'Model X', 'Automatic', 'Coal', 'ASD252', 'Pune', 19),
-(6, 2022, 3620.00, 1, 4, 'https://i.ibb.co/sQnQhY6/image-1.jpg', 'https://i.ibb.co/BPXB4SW/image-2.jpg', 'https://i.ibb.co/ZmtbW0S/image-5.jpg', 'https://i.ibb.co/QrTCyPK/image-4.jpg', 'https://i.ibb.co/w6PQFZt/image-3.jpg', 'Rolls Royce', 'Cullinan', 'Automatic', 'Electric', 'ASD425', 'Himachal Pradesh', 26),
-(7, 2018, 4560.00, 1, 2, 'https://i.ibb.co/GtTSnys/image-1.jpg', 'https://i.ibb.co/hfzSwKv/image-4.jpg', 'https://i.ibb.co/4SKcmWJ/image-5.jpg', 'https://i.ibb.co/v4FkBnc/image-3.jpg', 'https://i.ibb.co/C8NjkbR/image-2.jpg', 'Hyundai', 'Creta', 'Manual', 'Petrol', 'JKFK265', 'Haryana', 26),
-(8, 2021, 5690.00, 1, 2, 'https://i.ibb.co/zJMDkQY/image-1.jpg', 'https://i.ibb.co/TqvGPHV/image-2.jpg', 'https://i.ibb.co/K9TqY20/image-4.jpg', 'https://i.ibb.co/4swMXLm/image-3.jpg', 'https://i.ibb.co/FDyhjr9/image-5.jpg', 'Jaguar', 'XK', 'Manual', 'Petrol', 'ERW133S', 'Uttarakhand', 41),
-(14, 2023, 2480.00, 1, 6, 'https://i.ibb.co/ctdCPWN/image-1.jpg', 'https://i.ibb.co/FXq5BW3/image-2.jpg', 'https://i.ibb.co/Lg1MYH2/image-5.jpg', 'https://i.ibb.co/qsHZcpW/image-4.jpg', 'https://i.ibb.co/Vg65Q0n/image-3.jpg', 'Lotus', 'Eletre R 893', 'Automatic', 'Electric', 'EWR4789', 'Kerala', 44),
-(15, 2019, 3205.00, 1, 4, 'https://i.ibb.co/bLjhMGY/image-1.jpg', 'https://i.ibb.co/GnTxy56/image-4.jpg', 'https://i.ibb.co/dQdd6s2/image-5.jpg', 'https://i.ibb.co/Sm2SG9Z/image-2.jpg', 'https://i.ibb.co/n8RgB6J/image-3.jpg', 'Xiami', 'SU7 EV', 'Automatic', 'Electric', 'SFIB481', 'Goa', 36),
-(16, 2020, 3250.00, 1, 2, 'https://i.ibb.co/23mBLcd/image-1.jpg', 'https://i.ibb.co/ch8qdGS/image-2.jpg', 'https://i.ibb.co/f0ynVRg/image-5.jpg', 'https://i.ibb.co/hCvX4rC/image-3.jpg', 'https://i.ibb.co/YQmV0RK/image-4.jpg', 'McLaren', '626hp GTS', 'Manual', 'Petrol', 'OIAS925', 'New Delhi', 27),
-(17, 2018, 2500.00, 1, 4, 'https://i.ibb.co/2h2BJ8y/image-1.jpg', 'https://i.ibb.co/4Mvk6Xb/image-2.jpg', 'https://i.ibb.co/D1czt2Y/image-3.jpg', 'https://i.ibb.co/mhZshQX/image-5.jpg', 'https://i.ibb.co/LgqH9zV/image-4.jpg', 'Toyota', 'SUV', 'Manual', 'Diesel', 'KPA4185', 'Jharkhand', 20);
+(20, 2024, 1000000.00, 1, 4, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/37138/model-3-exterior-right-front-three-quarter.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/37138/model-3-interior-front-row-seats.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/37138/model-3-interior-dashboard.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/37138/model-3-exterior-tail-light-tail-lamp.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/37138/model-3-interior-inner-car-roof.jpeg?isig=0&q=80', 'Tesla', 'Model 3', 'Automatic', 'Listrik', 'AB 0129 GH', 'Jogja', 120),
+(21, 2023, 1500000.00, 1, 4, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/93821/exterior-right-front-three-quarter.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/93821/model-s-interior-rear-cup-holders.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/93821/model-s-interior-infotainment-system.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/93821/model-s-exterior-wheel.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/93821/model-s-exterior-left-rear-three-quarter.jpeg?q=80', 'Tesla', 'Model S', 'Automatic', 'Listrik', 'AB 0589 GP', 'Jogja', 390),
+(22, 2020, 1600000.00, 1, 6, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-9.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/48067/s-class-interior-front-row-seats-2.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/48067/s-class-interior-steering-wheel-2.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/48067/s-class-interior-instrument-cluster-2.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/48067/s-class-interior-bootspace-2.jpeg?isig=0&q=80', 'Mercedes-Benz', 'S-Class', 'Manual', 'Diesel', 'AB 0129 GH', 'Jogja', 360),
+(23, 2018, 2300000.00, 1, 4, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/148919/amg-sl55-roadster-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/148919/amg-sl55-roadster-interior-center-console-centre-console-storage.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/148919/amg-sl55-roadster-exterior-wheel.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/148919/amg-sl55-roadster-exterior-front-door-handle.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/148919/amg-sl55-roadster-exterior-rear-view.jpeg?isig=0&q=80', 'Mercedes-Benz', 'AMG SL55 Roadster', 'Manual', 'Diesel', 'AB 0589 GP', 'Jogja', 360),
+(24, 2015, 700000.00, 1, 6, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/132427/taisor-exterior-right-front-three-quarter-2.png?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/132427/taisor-interior-rear-seats.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/132427/taisor-interior-dashboard-22.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/132427/taisor-interior-horn-boss.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/132427/taisor-interior-infotainment-system.jpeg?isig=0&q=80', 'Toyota', 'Urban Cruiser Taisor', 'Manual', 'Diesel', 'AB 0589 GP', 'Jogja', 420),
+(25, 2018, 1600000.00, 1, 6, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/140809/innova-crysta-exterior-right-front-three-quarter-2.png?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/140809/innova-crysta-interior-front-row-seats.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/140809/innova-crysta-interior-dashboard.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/51435/innova-crysta-interior-instrument-cluster.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/140809/innova-crysta-interior-infotainment-system.jpeg?isig=0&q=80', 'Toyota', 'Innova Crysta', 'Manual', 'Diesel', 'AB 0129 GH', 'Jogja', 360),
+(26, 2020, 1500000.00, 1, 2, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/109265/hilux-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/109265/hilux-interior-front-row-seats.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/109265/hilux-interior-dashboard-31.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/109265/hilux-interior-gear-shifter-gear-shifter-stalk.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/109265/hilux-interior-bootspace.jpeg?isig=0&q=80', 'Toyota', 'Hilux', 'Manual', 'Diesel', 'AB 0129 GH', 'Jogja', 360),
+(27, 2018, 1500000.00, 1, 6, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-facelift-interior-front-row-seats.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-facelift-interior-dashboard.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-facelift-interior-gear-shifter-gear-shifter-stalk.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-facelift-interior-bootspace.jpeg?isig=0&q=80', 'Tata', 'Nexon', 'Manual', 'Diesel', 'AB 0589 GP', 'Jogja', 420),
+(28, 2024, 2300000.00, 1, 4, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/121335/avinya-concept-exterior-left-front-three-quarter.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/121335/avinya-concept-interior-front-row-seats.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/121401/tata-avinya-concept-dashboard7.jpeg?isig=0&wm=1&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/121401/tata-avinya-concept-360-degree-camera-control22.jpeg?isig=0&wm=1&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/121401/tata-avinya-concept-rear-door-pad9.jpeg?isig=0&wm=1&q=80', 'Tata', 'Avinya', 'Automatic', 'Listrik', 'AB 0129 GH', 'Jogja', 420),
+(29, 2023, 1600000.00, 1, 4, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/39345/tiago-exterior-right-front-three-quarter-27.jpeg?isig=0&q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/39345/tiago-interior-front-row-seats-2.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/39345/tiago-interior-dashboard-3.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/39345/tiago-interior-gear-shifter-gear-shifter-stalk.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/39345/tiago-interior-bootspace-2.jpeg?q=80', 'Tata', 'Tiago', 'Manual', 'Diesel', 'AB 0129 GH', 'Jogja', 420),
+(30, 2023, 2300000.00, 1, 4, 'https://imgd.aeplcdn.com/370x208/n/cw/ec/51909/a4-exterior-right-front-three-quarter-2.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/51909/a4-interior-front-row-seats.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/51909/a4-interior-dashboard.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/51909/a4-interior-instrument-cluster.jpeg?q=80', 'https://imgd.aeplcdn.com/370x208/n/cw/ec/51909/a4-interior-bootspace.jpeg?q=80', 'Audi', 'A4', 'Manual', 'Diesel', 'AB 0129 GH', 'Jogja', 360);
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,9 @@ CREATE TABLE `hire` (
 --
 
 INSERT INTO `hire` (`hire_id`, `car_id`, `user_id`, `start_date`, `end_date`, `time`, `total_amount`, `status`, `user_email`) VALUES
-(39, 8, 7, '2024-03-12', '2024-03-13', '2024-03-10 05:39:05', 11380.00, 'Approved', 'vinay@gmail.com');
+(39, 8, 7, '2024-03-12', '2024-03-13', '2024-03-10 05:39:05', 11380.00, 'Approved', 'vinay@gmail.com'),
+(40, 3, 9, '2024-06-15', '2024-06-17', '2024-06-15 07:58:20', 12900.00, 'Pending', 'asd@asd'),
+(49, 6, 10, '2024-06-15', '2024-06-17', '2024-06-15 15:08:06', 10860.00, 'Returned', 'qwe@qwe');
 
 -- --------------------------------------------------------
 
@@ -121,13 +124,6 @@ CREATE TABLE `messages` (
   `message` text NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`message_id`, `name`, `email`, `message`, `time`) VALUES
-(3, 'Ajay', 'ajay231@gmail.com', 'is Mercedes still available?', '2023-12-20 02:56:45');
 
 -- --------------------------------------------------------
 
@@ -194,7 +190,18 @@ INSERT INTO `transaction` (`transaction_id`, `admin_id`, `amount`, `status`, `ti
 (45, 1, -4960.00, 'Car Cancelled', '2024-01-14 08:17:21', 37),
 (46, 1, 13680.00, 'Car Booked', '2024-01-23 12:20:46', 38),
 (47, 1, 14880.00, 'Fine: Exceeded Usage', '2024-01-23 12:20:54', 37),
-(48, 1, 11380.00, 'Car Booked', '2024-03-10 05:39:05', 39);
+(48, 1, 11380.00, 'Car Booked', '2024-03-10 05:39:05', 39),
+(49, 1, 12900.00, 'Car Booked', '2024-06-15 07:58:20', 40),
+(50, 1, 17200.00, 'Car Booked', '2024-06-15 14:51:00', 41),
+(51, 1, 26000.00, 'Car Booked', '2024-06-15 14:51:12', 42),
+(52, 1, 34140.00, 'Car Booked', '2024-06-15 14:54:22', 43),
+(53, 1, 28845.00, 'Car Booked', '2024-06-15 14:55:33', 44),
+(54, 1, 10860.00, 'Car Booked', '2024-06-15 14:58:17', 45),
+(55, 1, 10860.00, 'Car Booked', '2024-06-15 15:03:21', 46),
+(56, 1, 10860.00, 'Car Booked', '2024-06-15 15:04:19', 47),
+(57, 1, 10860.00, 'Car Booked', '2024-06-15 15:07:24', 48),
+(58, 1, 10860.00, 'Car Booked', '2024-06-15 15:08:06', 49),
+(59, 1, -7240.00, 'Refund: Insufficient', '2024-06-15 15:39:28', 49);
 
 -- --------------------------------------------------------
 
@@ -218,7 +225,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `phone`, `license`, `gender`, `address`, `email`, `password`) VALUES
-(8, 'test', '0123456789', 'AB1234567', 'male', '123', 'test@gmail.com', '202cb962ac59075b964b07152d234b70');
+(9, 'asd', '123', 'AB1234567', 'male', 'asd', 'asd@asd', '7815696ecbf1c96e6894b779456d330e'),
+(10, 'qwe', '123', 'AB1234567', 'male', 'qwe', 'qwe@qwe', '76d80224611fc919a5d54f0ff9fba446'),
+(11, 'q', 'q', 'q', 'male', '', 'q@q', '7694f4a66316e53c8cdd9d9954bd611d'),
+(17, '1', '1', '1', 'male', '1', '1@1', 'c4ca4238a0b923820dcc509a6f75849b');
 
 --
 -- Indexes for dumped tables
@@ -283,19 +293,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `hire`
 --
 ALTER TABLE `hire`
-  MODIFY `hire_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `hire_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -319,13 +329,13 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
