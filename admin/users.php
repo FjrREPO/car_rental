@@ -30,7 +30,7 @@
               <th scope="col" class="px-6 py-3">ID</th>
               <th scope="col" class="px-6 py-3">Nama</th>
               <th scope="col" class="px-6 py-3">No. Telepon</th>
-              <th scope="col" class="px-6 py-3">Nomor Plat</th>
+              <th scope="col" class="px-6 py-3">Lisensi Mengemudi</th>
               <th scope="col" class="px-6 py-3">Jenis Kelamin</th>
               <th scope="col" class="px-6 py-3">Alamat</th>
               <th scope="col" class="px-6 py-3">Email</th>
