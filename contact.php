@@ -46,13 +46,13 @@
           </div>
 
           <div class="mb-3 w-full">
-            <label class="block font-medium mb-[2px] text-teal-700" htmlFor="exampleInput90">
+            <label class="block font-medium mb-[2px] text-teal-700" htmlFor="message">
               Pesan
             </label>
             <textarea placeholder="Pesan..." class="px-2 py-2 border rounded-[5px] w-full outline-none" name="message" id="message"></textarea>
           </div>
 
-          <button type="button"
+          <button type="submit" name="submit"
             class="mb-6 inline-block duration-200 w-full rounded bg-teal-400 px-6 py-2.5 font-medium uppercase leading-normal text-white hover:shadow-md hover:bg-teal-500">
             Kirim
           </button>

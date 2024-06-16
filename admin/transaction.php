@@ -24,6 +24,7 @@
                 <th scope="col" class="px-6 py-3">Nama Pengguna</th>
                 <th scope="col" class="px-6 py-3">Nama Mobil</th>
                 <th scope="col" class="px-6 py-3">Total</th>
+                <th scope="col" class="px-6 py-3">Metode Bayar</th>
                 <th scope="col" class="px-6 py-3">Status</th>
                 <th scope="col" class="px-6 py-3">Waktu</th>
               </tr>
@@ -35,6 +36,7 @@
                             transaction.transaction_id,
                             transaction.hire_id,
                             transaction.amount,
+                            transaction.payment_method,
                             transaction.timestamp,
                             transaction.status,
                             users.user_name,
@@ -59,6 +61,7 @@
                   <td class="px-6 py-4 text-gray-600"><?php echo $row['user_name'] ?></td>
                   <td class="px-6 py-4 text-gray-600"><?php echo $row['car_make'] ?>   <?php echo $row['car_model'] ?></td>
                   <td class="px-6 py-4 text-gray-600"><?php echo $formatted_amount ?></td>
+                  <td class="px-6 py-4 text-gray-600"><?php echo $row['payment_method'] ?></td>
                   <td class="px-6 py-4 text-gray-600"><?php echo $row['status'] ?></td>
                   <td class="px-6 py-4 text-gray-600"><?php echo date('d/m/Y H:i', strtotime($row['timestamp'])) ?></td>
                 </tr>

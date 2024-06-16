@@ -31,6 +31,7 @@
 
     if ($result->num_rows > 0) {
       ?>
+      <div class="flex flex-row flex-wrap justify-center items-center w-full h-auto">
         <?php
         while ($row = $result->fetch_assoc()) {
           $start_timestamp = strtotime($row['start_date']);
@@ -110,6 +111,7 @@
           <?php
         }
         ?>
+      </div>
       <?php
     } else {
       echo "<p>No bookings found.</p>";

@@ -1,14 +1,3 @@
-<?php
-include 'includes/config.php';
-include 'includes/header.php';
-
-$car_id = $_REQUEST['car_id']; 
-
-if (!isset($_SESSION['user_email'])) {
-  echo '<script>window.location.href = "signin.php";</script>';
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +13,15 @@ if (!isset($_SESSION['user_email'])) {
 
 <body>
   <?php
+  include 'includes/config.php';
+  include 'includes/header.php';
+
+  $car_id = $_REQUEST['car_id'];
+
+  if (!isset($_SESSION['user_email'])) {
+    echo '<script>window.location.href = "signin.php";</script>';
+  }
+
   $sql = "SELECT * FROM cars WHERE car_id = $car_id";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -38,8 +36,8 @@ if (!isset($_SESSION['user_email'])) {
     </div>
     <div class="grid gap-4">
       <div class="w-full flex justify-center">
-        <img id="mainImage" class="h-auto max-w-[95%] sm:max-w-[600px] sm:w-[600px] rounded-lg" src="<?php echo $row['image1']; ?>"
-          alt="">
+        <img id="mainImage" class="h-auto max-w-[95%] sm:max-w-[600px] sm:w-[600px] rounded-lg"
+          src="<?php echo $row['image1']; ?>" alt="">
       </div>
       <div class="w-full flex justify-center">
         <div class="grid grid-cols-5 gap-4 max-w-[95%] sm:max-w-[600px]">
@@ -72,8 +70,8 @@ if (!isset($_SESSION['user_email'])) {
           <p class="text-base leading-4 text-gray-800">Kapasitas</p>
           <div class="flex items-center justify-center">
             <p class="text-sm leading-none text-gray-600"><?php echo $row['capacity']; ?> orang</p>
-            <img class="hidden dark:block"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2dark.svg" alt="next">
+            <img class="block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2dark.svg"
+              alt="next">
           </div>
         </div>
         <div class="py-4 border-b border-gray-200 flex items-center justify-between">
@@ -94,7 +92,50 @@ if (!isset($_SESSION['user_email'])) {
               alt="next">
           </div>
         </div>
+
         <form method="POST" class="py-4 border-b border-gray-200">
+          <h3 class="mb-5 text-lg font-medium text-gray-900 text-center pt-10">Pilih metode pembayaran</h3>
+          <ul class="grid w-full gap-6 md:grid-cols-2">
+            <li>
+              <input type="radio" id="payment-bri" name="payment_method" value="bri" class="hidden peer" required>
+              <label for="payment-bri"
+                class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">
+                <div class="block">
+                  <div class="w-full text-lg font-semibold">BRI</div>
+                  <div class="w-full">1234-5678-9012-3456</div>
+                </div>
+                <img class="w-20 h-auto rounded-lg"
+                  src="https://i0.wp.com/umsu.ac.id/berita/wp-content/uploads/2023/09/Cara-dan-Syarat-Membuka-Rekening-BRI-2023.jpg?fit=1920%2C1080&ssl=1"
+                  alt="">
+              </label>
+            </li>
+            <li>
+              <input type="radio" id="payment-bni" name="payment_method" value="bni" class="hidden peer" required>
+              <label for="payment-bni"
+                class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">
+                <div class="block">
+                  <div class="w-full text-lg font-semibold">BNI</div>
+                  <div class="w-full">1234-5678-9012-3456</div>
+                </div>
+                <img class="w-20 h-auto rounded-lg bg-white py-3 px-2"
+                  src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1280px-BNI_logo.svg.png"
+                  alt="">
+              </label>
+            </li>
+            <li>
+              <input type="radio" id="payment-bca" name="payment_method" value="bca" class="hidden peer" required>
+              <label for="payment-bca"
+                class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">
+                <div class="block">
+                  <div class="w-full text-lg font-semibold">BCA</div>
+                  <div class="w-full">1234-5678-9012-3456</div>
+                </div>
+                <img class="w-20 h-auto rounded-lg bg-white py-3 px-2"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png"
+                  alt="">
+              </label>
+            </li>
+          </ul>
           <div class="flex items-center py-5">
             <div class="relative w-full">
               <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -150,62 +191,65 @@ if (!isset($_SESSION['user_email'])) {
 
   <?php
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!isset($_SESSION['user_email'])) {
-      header("Location: signin.php");
-      exit();
-    } else {
-      $user_email = $_SESSION['user_email'];
+    $payment_method = htmlspecialchars($_POST['payment_method'], ENT_QUOTES, 'UTF-8');
+    $start_date = htmlspecialchars($_POST['start-date'], ENT_QUOTES, 'UTF-8');
+    $end_date = htmlspecialchars($_POST['end-date'], ENT_QUOTES, 'UTF-8');
 
-      $query = "SELECT user_id FROM users WHERE email = '$user_email'";
-      $result = $conn->query($query);
-      $rows = $result->fetch_assoc();
-      $user_id = $rows['user_id'];
-
-      $start_date = $_POST['start-date'];
-      $end_date = $_POST['end-date'];
-
-      $today = date("Y-m-d");
-
-      echo "Start Date: $start_date<br>";
-      echo "End Date: $end_date<br>";
-      echo "User Email: $user_email<br>";
-
-      $start_timestamp = strtotime($start_date);
-      $end_timestamp = strtotime($end_date);
-      $today_timestamp = strtotime($today);
-
-      if ($start_timestamp < $today_timestamp || $end_timestamp <= $today_timestamp || $start_timestamp > $end_timestamp || $start_date == $end_date) {
-        echo "<script type='text/javascript'>
-                    alert('Invalid date selection. Please choose valid dates.');
-                    </script>";
-      } else {
-        $days = (strtotime($end_date) - strtotime($start_date)) / (60 * 60 * 24) + 1;
-        $total_amount = $days * $row['rate'];
-
-        $sql_insert = "INSERT INTO hire (car_id, user_id, start_date, end_date, total_amount, user_email, status)
-                      VALUES ($car_id, $user_id, '$start_date', '$end_date', $total_amount, '$user_email', 'Pending')";
-
-        if ($conn->query($sql_insert) === TRUE) {
-          $hire_id = $conn->insert_id;
-
-          $sql_insert_transaction = "INSERT INTO transaction (hire_id, amount, status) VALUES ($hire_id, $total_amount, 'Car Booked')";
-          if ($conn->query($sql_insert_transaction) === TRUE) {
-            echo "<script type='text/javascript'>
-                      alert('Booking Placed Successfully! Wait for Admin Approval..');
-                      window.location = ('booking_details.php');
-                      </script>";
-          } else {
-            echo "Error inserting into transaction table: " . $stmt->error;
-          }
-        } else {
-          echo "Error inserting into hire table: " . $stmt->error;
-        }
-      }
+    if (!$payment_method || !$start_date || !$end_date) {
+      echo "<script>alert('Isi semua data!');</script>";
+      exit;
     }
+
+    $start_timestamp = strtotime($start_date);
+    $end_timestamp = strtotime($end_date);
+    $today_timestamp = strtotime(date("Y-m-d"));
+
+    if ($payment_method == '') {
+      echo "<script>alert('Pilih metode pembayaran!');</script>";
+      exit;
+    }
+
+    if ($start_timestamp < $today_timestamp || $end_timestamp <= $today_timestamp || $start_timestamp > $end_timestamp || $start_date == $end_date) {
+      echo "<script>alert('Tanggal harus sesuai!');</script>";
+      exit;
+    }
+
+    $days = ($end_timestamp - $start_timestamp) / (60 * 60 * 24) + 1;
+    $total_amount = $days * $row['rate'];
+
+    $user_email = $_SESSION['user_email'];
+    $query = "SELECT user_id FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $user_email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $rows = $result->fetch_assoc();
+    $user_id = $rows['user_id'];
+    $stmt->close();
+
+    $sql_insert = "INSERT INTO hire (car_id, user_id, start_date, end_date, total_amount, payment_method, user_email, status) VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending')";
+    $stmt = $conn->prepare($sql_insert);
+    $stmt->bind_param("iississ", $car_id, $user_id, $start_date, $end_date, $total_amount, $payment_method, $user_email);
+    if ($stmt->execute()) {
+      $hire_id = $stmt->insert_id;
+
+      $sql_insert_transaction = "INSERT INTO transaction (hire_id, amount, payment_method, status) VALUES (?, ?, ?, 'Car Booked')";
+      $stmt_trans = $conn->prepare($sql_insert_transaction);
+      $stmt_trans->bind_param("iis", $hire_id, $total_amount, $payment_method);
+      if ($stmt_trans->execute()) {
+        echo "<script>alert('Booking Placed Successfully! Wait for Admin Approval..'); window.location = 'booking_details.php';</script>";
+      } else {
+        echo "Error inserting into transaction table: " . $stmt_trans->error;
+      }
+      $stmt_trans->close();
+    } else {
+      echo "Error inserting into hire table: " . $stmt->error;
+    }
+    $stmt->close();
   }
 
-  $stmt->close();
   $conn->close();
+  ?>
   ?>
 
 </body>
