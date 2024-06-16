@@ -47,7 +47,7 @@
               <td class="px-6 py-4"><?php echo htmlspecialchars($row['gender']); ?></td>
               <td class="px-6 py-4"><?php echo htmlspecialchars($row['address']); ?></td>
               <td class="px-6 py-4"><?php echo htmlspecialchars($row['email']); ?></td>
-              <td class="px-6 py-4 text-center">
+              <td class="px-6 py-4">
                 <a href="javascript:sureToApprove(<?php echo $row['user_id']; ?>)" class="font-medium text-red-600 hover:underline">Delete</a>
               </td>
             </tr>
