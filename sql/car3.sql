@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2024 at 07:58 AM
+-- Generation Time: Jun 16, 2024 at 10:03 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -98,6 +98,7 @@ CREATE TABLE `hire` (
   `end_date` date DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp(),
   `total_amount` decimal(10,2) DEFAULT NULL,
+  `payment_method` varchar(255) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -106,10 +107,11 @@ CREATE TABLE `hire` (
 -- Dumping data for table `hire`
 --
 
-INSERT INTO `hire` (`hire_id`, `car_id`, `user_id`, `start_date`, `end_date`, `time`, `total_amount`, `status`, `user_email`) VALUES
-(39, 8, 7, '2024-03-12', '2024-03-13', '2024-03-10 05:39:05', 11380.00, 'Approved', 'vinay@gmail.com'),
-(40, 3, 9, '2024-06-15', '2024-06-17', '2024-06-15 07:58:20', 12900.00, 'Pending', 'asd@asd'),
-(49, 6, 10, '2024-06-15', '2024-06-17', '2024-06-15 15:08:06', 10860.00, 'Returned', 'qwe@qwe');
+INSERT INTO `hire` (`hire_id`, `car_id`, `user_id`, `start_date`, `end_date`, `time`, `total_amount`, `payment_method`, `status`, `user_email`) VALUES
+(50, 22, 9, '2024-06-16', '2024-06-17', '2024-06-16 07:45:26', 3200000.00, 'bri', 'Pending', 'asd@asd'),
+(51, 23, 9, '2024-06-18', '2024-06-21', '2024-06-16 07:45:43', 9200000.00, 'bni', 'Pending', 'asd@asd'),
+(52, 22, 9, '2024-06-17', '2024-06-18', '2024-06-16 07:47:36', 3200000.00, 'bri', 'Pending', 'asd@asd'),
+(53, 21, 9, '2024-06-17', '2024-06-20', '2024-06-16 07:50:47', 6000000.00, 'bri', 'Pending', 'asd@asd');
 
 -- --------------------------------------------------------
 
@@ -124,6 +126,13 @@ CREATE TABLE `messages` (
   `message` text NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `name`, `email`, `message`, `time`) VALUES
+(11, 'Fajar', 'asd@asd', 'Keren daarrrr', '2024-06-16 07:57:06');
 
 -- --------------------------------------------------------
 
@@ -173,6 +182,7 @@ CREATE TABLE `transaction` (
   `transaction_id` int(11) NOT NULL,
   `admin_id` int(11) DEFAULT 1,
   `amount` decimal(10,2) DEFAULT NULL,
+  `payment_method` varchar(255) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `hire_id` int(11) DEFAULT NULL
@@ -182,26 +192,30 @@ CREATE TABLE `transaction` (
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`transaction_id`, `admin_id`, `amount`, `status`, `timestamp`, `hire_id`) VALUES
-(41, 1, 35100.00, 'Fine: Exceeded Usage', '2024-01-14 05:09:38', 18),
-(42, 1, 9615.00, 'Car Booked', '2024-01-14 05:16:41', 36),
-(43, 1, -6410.00, 'Refund: Insufficient', '2024-01-14 05:17:50', 36),
-(44, 1, 4960.00, 'Car Booked', '2024-01-14 08:16:17', 37),
-(45, 1, -4960.00, 'Car Cancelled', '2024-01-14 08:17:21', 37),
-(46, 1, 13680.00, 'Car Booked', '2024-01-23 12:20:46', 38),
-(47, 1, 14880.00, 'Fine: Exceeded Usage', '2024-01-23 12:20:54', 37),
-(48, 1, 11380.00, 'Car Booked', '2024-03-10 05:39:05', 39),
-(49, 1, 12900.00, 'Car Booked', '2024-06-15 07:58:20', 40),
-(50, 1, 17200.00, 'Car Booked', '2024-06-15 14:51:00', 41),
-(51, 1, 26000.00, 'Car Booked', '2024-06-15 14:51:12', 42),
-(52, 1, 34140.00, 'Car Booked', '2024-06-15 14:54:22', 43),
-(53, 1, 28845.00, 'Car Booked', '2024-06-15 14:55:33', 44),
-(54, 1, 10860.00, 'Car Booked', '2024-06-15 14:58:17', 45),
-(55, 1, 10860.00, 'Car Booked', '2024-06-15 15:03:21', 46),
-(56, 1, 10860.00, 'Car Booked', '2024-06-15 15:04:19', 47),
-(57, 1, 10860.00, 'Car Booked', '2024-06-15 15:07:24', 48),
-(58, 1, 10860.00, 'Car Booked', '2024-06-15 15:08:06', 49),
-(59, 1, -7240.00, 'Refund: Insufficient', '2024-06-15 15:39:28', 49);
+INSERT INTO `transaction` (`transaction_id`, `admin_id`, `amount`, `payment_method`, `status`, `timestamp`, `hire_id`) VALUES
+(41, 1, 35100.00, NULL, 'Fine: Exceeded Usage', '2024-01-14 05:09:38', 18),
+(42, 1, 9615.00, NULL, 'Car Booked', '2024-01-14 05:16:41', 36),
+(43, 1, -6410.00, NULL, 'Refund: Insufficient', '2024-01-14 05:17:50', 36),
+(44, 1, 4960.00, NULL, 'Car Booked', '2024-01-14 08:16:17', 37),
+(45, 1, -4960.00, NULL, 'Car Cancelled', '2024-01-14 08:17:21', 37),
+(46, 1, 13680.00, NULL, 'Car Booked', '2024-01-23 12:20:46', 38),
+(47, 1, 14880.00, NULL, 'Fine: Exceeded Usage', '2024-01-23 12:20:54', 37),
+(48, 1, 11380.00, NULL, 'Car Booked', '2024-03-10 05:39:05', 39),
+(49, 1, 12900.00, NULL, 'Car Booked', '2024-06-15 07:58:20', 40),
+(50, 1, 17200.00, NULL, 'Car Booked', '2024-06-15 14:51:00', 41),
+(51, 1, 26000.00, NULL, 'Car Booked', '2024-06-15 14:51:12', 42),
+(52, 1, 34140.00, NULL, 'Car Booked', '2024-06-15 14:54:22', 43),
+(53, 1, 28845.00, NULL, 'Car Booked', '2024-06-15 14:55:33', 44),
+(54, 1, 10860.00, NULL, 'Car Booked', '2024-06-15 14:58:17', 45),
+(55, 1, 10860.00, NULL, 'Car Booked', '2024-06-15 15:03:21', 46),
+(56, 1, 10860.00, NULL, 'Car Booked', '2024-06-15 15:04:19', 47),
+(57, 1, 10860.00, NULL, 'Car Booked', '2024-06-15 15:07:24', 48),
+(58, 1, 10860.00, NULL, 'Car Booked', '2024-06-15 15:08:06', 49),
+(59, 1, -7240.00, NULL, 'Refund: Insufficient', '2024-06-15 15:39:28', 49),
+(60, 1, 3200000.00, NULL, 'Car Booked', '2024-06-16 07:45:26', 50),
+(61, 1, 9200000.00, NULL, 'Car Booked', '2024-06-16 07:45:43', 51),
+(62, 1, 3200000.00, NULL, 'Car Booked', '2024-06-16 07:47:36', 52),
+(63, 1, 6000000.00, 'bri', 'Car Booked', '2024-06-16 07:50:47', 53);
 
 -- --------------------------------------------------------
 
@@ -305,13 +319,13 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT for table `hire`
 --
 ALTER TABLE `hire`
-  MODIFY `hire_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `hire_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `policy`
@@ -329,7 +343,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `users`
