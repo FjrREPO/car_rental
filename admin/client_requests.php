@@ -45,7 +45,7 @@
   <div class="relative overflow-x-auto px-5 py-5 shadow-md sm:rounded-lg">
     <div class="flex flex-row justify-between w-full h-auto items-center mb-4">
       <span class="p-5 text-lg font-semibold text-left text-gray-900 bg-white">
-        Client Requests
+        Orderan
       </span>
     </div>
     <table class="w-full text-sm text-left text-gray-500">

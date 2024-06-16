@@ -46,7 +46,7 @@
 				<li><a class="text-sm text-gray-400 hover:text-gray-500 <?php if ($currentPage == 'cars_list.php')
 					echo 'navbar-item active'; ?>" href="cars_list.php">Daftar Mobil</a></li>
 				<li><a class="text-sm text-gray-400 hover:text-gray-500 <?php if ($currentPage == 'client_requests.php')
-					echo 'navbar-item active'; ?>" href="client_requests.php">Permintaan</a></li>
+					echo 'navbar-item active'; ?>" href="client_requests.php">Orderan</a></li>
 				<li><a class="text-sm text-gray-400 hover:text-gray-500 <?php if ($currentPage == 'transaction.php')
 					echo 'navbar-item active'; ?>" href="transaction.php">Transaksi</a></li>
 				<li><a class="text-sm text-gray-400 hover:text-gray-500 <?php if ($currentPage == 'users.php')
@@ -87,7 +87,7 @@
 						</li>
 						<li class="mb-1">
 							<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded <?php if ($currentPage == 'client_requests.php')
-								echo 'navbar-item active'; ?>" href="client_requests.php">Permintaan</a>
+								echo 'navbar-item active'; ?>" href="client_requests.php">Orderan</a>
 						</li>
 						<li class="mb-1">
 							<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded <?php if ($currentPage == 'transaction.php')
