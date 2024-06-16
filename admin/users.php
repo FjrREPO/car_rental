@@ -16,7 +16,7 @@
   <?php include 'menu.php'; ?>
   <main class="w-full h-full p-5">
     <section class="admin-table">
-      <h2 class="text-2xl font-bold mb-4">Our Users</h2>
+      <h2 class="text-2xl font-bold mb-4">Pengguna</h2>
       
       <div class="table-card relative overflow-x-auto px-5 py-5 shadow-md sm:rounded-lg">
         <?php
