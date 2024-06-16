@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin Dashboard</title>
+  <title>Inbox</title>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript">

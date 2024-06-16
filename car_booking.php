@@ -1,8 +1,19 @@
+<?php
+include 'includes/config.php';
+include 'includes/header.php';
+
+$car_id = $_REQUEST['car_id']; 
+
+if (!isset($_SESSION['user_email'])) {
+  echo '<script>window.location.href = "signin.php";</script>';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Car Details Page</title>
+  <title>Detail Mobil</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,10 +24,6 @@
 
 <body>
   <?php
-  include 'includes/config.php';
-  include 'includes/header.php';
-  $car_id = $_REQUEST['car_id'];
-
   $sql = "SELECT * FROM cars WHERE car_id = $car_id";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -31,7 +38,7 @@
     </div>
     <div class="grid gap-4">
       <div class="w-full flex justify-center">
-        <img id="mainImage" class="h-auto max-w-[95%] sm:max-w-[600px] rounded-lg" src="<?php echo $row['image1']; ?>"
+        <img id="mainImage" class="h-auto max-w-[95%] sm:max-w-[600px] sm:w-[600px] rounded-lg" src="<?php echo $row['image1']; ?>"
           alt="">
       </div>
       <div class="w-full flex justify-center">

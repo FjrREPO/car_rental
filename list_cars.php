@@ -93,7 +93,7 @@
                             style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
                         </div>
                         <div class="flex flex-col items-center justify-center">
-                            <div class="relative text-white px-6 pb-6">
+                            <div class="relative text-white px-2 pb-6">
                                 <span class="block opacity-75 text-center -mb-1"><?php echo $row['car_model']; ?></span>
                                 <div class="flex justify-center">
                                     <span
@@ -117,7 +117,6 @@
 
             $total_pages = ceil($total_records / $results_per_page);
 
-            // Display pagination links
             echo '<div class="flex justify-center mt-5">';
             for ($i = 1; $i <= $total_pages; $i++) {
                 echo '<a class="mx-1 px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400" href="list_cars.php?page=' . $i . '">' . $i . '</a>';

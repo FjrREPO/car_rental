@@ -18,7 +18,6 @@
   session_start();
   error_reporting(E_NOTICE);
 
-  // Get the current page name
   $currentPage = basename($_SERVER['SCRIPT_NAME']);
   ?>
 

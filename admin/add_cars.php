@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Add a New Car</title>
+	<title>Tambah Mobil</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -133,6 +133,16 @@
 							placeholder=" " required />
 						<label for="capacity"
 							class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Kapasitas</label>
+					</div>
+				</div>
+				<div class="grid md:grid-cols-1 md:gap-6">
+					<div class="relative z-0 w-full mb-5 group">
+						<input type="text" name="mileage" id="mileage"
+							class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+							placeholder=" " required />
+						<label for="mileage"
+							class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+							Kilometer</label>
 					</div>
 				</div>
 

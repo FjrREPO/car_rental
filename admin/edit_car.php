@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Car</title>
+    <title>Edit Mobil</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>

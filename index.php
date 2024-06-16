@@ -59,7 +59,7 @@
                 style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
               </div>
               <div class="flex flex-col items-center justify-center">
-                <div class="relative text-white px-6 pb-6">
+                <div class="relative text-white px-2 pb-6">
                   <span class="block opacity-75 text-center -mb-1"><?php echo $row['car_model']; ?></span>
                   <div class="flex justify-center">
                     <span class="block font-semibold text-center text-xl"><?php echo $row['car_make']; ?></span>
